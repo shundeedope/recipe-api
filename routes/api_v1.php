@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 // recipes (title, meal type, number of people served, difficulty, list of ingredients(including their amounts), and the preperation steps
 
 
-Route::apiResource('v1/recipes', RecipeController::class);
+Route::middleware('auth:sanctum')->apiResource('v1/recipes', RecipeController::class);
 
 Route::get('/user', function (Request $request) {
     return $request->user();
